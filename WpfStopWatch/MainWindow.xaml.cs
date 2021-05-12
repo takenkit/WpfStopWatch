@@ -23,6 +23,7 @@ namespace WpfStopWatch
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainWindowViewModel();
         }
     }
 }
