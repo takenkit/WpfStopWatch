@@ -1,0 +1,15 @@
+D:\source\repos\WpfStopWatch\WpfStopWatch\bin\Debug\WpfStopWatch.exe.config
+D:\source\repos\WpfStopWatch\WpfStopWatch\bin\Debug\WpfStopWatch.exe
+D:\source\repos\WpfStopWatch\WpfStopWatch\bin\Debug\WpfStopWatch.pdb
+D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\WpfStopWatch.csprojAssemblyReference.cache
+D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\MainWindow.g.cs
+D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\App.g.cs
+D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\WpfStopWatch_MarkupCompile.cache
+D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\WpfStopWatch_MarkupCompile.lref
+D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\MainWindow.baml
+D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\WpfStopWatch.g.resources
+D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\WpfStopWatch.Properties.Resources.resources
+D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\WpfStopWatch.csproj.GenerateResource.cache
+D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\WpfStopWatch.csproj.CoreCompileInputs.cache
+D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\WpfStopWatch.exe
+D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\WpfStopWatch.pdb
