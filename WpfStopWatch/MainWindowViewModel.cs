@@ -13,11 +13,11 @@ namespace WpfStopWatch
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public MainWindowViewModel()
-        {
-            Stopwatch = new Stopwatch();   
-            LapTimes = new ObservableCollection<string>();
-        }
+        private Stopwatch _stopwatch;
+        private ObservableCollection<string> _lapTimes;
+        private ICommand _startCommand;
+        private ICommand _stopCommand;
+        private ICommand _clearCommand;
 
         public Stopwatch Stopwatch { get; set; }
 
@@ -26,13 +26,18 @@ namespace WpfStopWatch
         public ICommand StopCommand { get; set; }
 
         public ICommand ClearCommand { get; set; }
-
-        private void LapTimes_CollectionChanged(object sender, NotifyCollectionChangedEventHandler e)
-        {
-
-        }
-
         public ObservableCollection<string> LapTimes { get; set; }
+
+        private void LapTimes_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            NotifyPropertyChanged();
+        }
+        public MainWindowViewModel()
+        {
+            Stopwatch = new Stopwatch();
+            LapTimes = new ObservableCollection<string>();
+            LapTimes.CollectionChanged += new NotifyCollectionChangedEventHandler(LapTimes_CollectionChanged);
+        }
 
     }
 }

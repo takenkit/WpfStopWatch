@@ -14,7 +14,7 @@ namespace WpfStopWatch
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var ts = ((Stopwatch)value).Elapsed;
-            return ts.ToString();
+            return ts.ToString("hh:mm:ss");
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
