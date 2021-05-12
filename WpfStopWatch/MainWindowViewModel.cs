@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -9,12 +11,12 @@ using System.Windows.Input;
 
 namespace WpfStopWatch
 {
-    public class MainWindowViewModel
+    public class MainWindowViewModel : ViewModelBase
     {
         public MainWindowViewModel()
         {
             Stopwatch = new Stopwatch();   
-            LapTimes = new List<string>();
+            LapTimes = new ObservableCollection<string>();
         }
 
         public Stopwatch Stopwatch { get; set; }
@@ -25,7 +27,12 @@ namespace WpfStopWatch
 
         public ICommand ClearCommand { get; set; }
 
-        public List<string> LapTimes { get; set; }
+        private void LapTimes_CollectionChanged(object sender, NotifyCollectionChangedEventHandler e)
+        {
+
+        }
+
+        public ObservableCollection<string> LapTimes { get; set; }
 
     }
 }
