@@ -16,7 +16,7 @@
             <RowDefinition Height="115*" />
             <RowDefinition Height="197*" />
         </Grid.RowDefinitions>
-        <TextBox x:Name="txtDisplay" HorizontalAlignment="Left" Height="67" Margin="45,40,0,0" TextWrapping="Wrap" Text="{Binding Timer, Converter={StaticResource TimeConverter}}" VerticalAlignment="Top" Width="300" FontWeight="Bold" TextAlignment="Center" FontSize="36" />
+        <TextBox x:Name="txtDisplay" HorizontalAlignment="Left" Height="67" Margin="45,40,0,0" TextWrapping="Wrap" Text="{Binding Stopwatch, Converter={StaticResource TimeConverter}}" VerticalAlignment="Top" Width="300" FontWeight="Bold" TextAlignment="Center" FontSize="36" />
         <Button x:Name="btnStart" Grid.Row="1" Content="START" HorizontalAlignment="Left" Margin="45,39,0,0" VerticalAlignment="Top" Width="80" Height="40" Command="{Binding StartCommand}" />
         <Button x:Name="btnStop" Grid.Row="1" Content="STOP" HorizontalAlignment="Left" Margin="153,39,0,0" VerticalAlignment="Top" Width="80" Height="40" Command="{Binding StopCommand}" />
         <Button x:Name="btnClear" Grid.Row="1" Content="CLEAR" HorizontalAlignment="Left" Margin="265,39,0,0" VerticalAlignment="Top" Width="80" Height="40" Command="{Binding ClearCommand}" />

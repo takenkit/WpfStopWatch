@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,11 @@ namespace WpfStopWatch
     {
         public MainWindowViewModel()
         {
-            Timer = new Timer();
+            Stopwatch = new Stopwatch();   
             LapTimes = new List<string>();
         }
 
-        public Timer Timer { get; set; }
+        public Stopwatch Stopwatch { get; set; }
 
         public ICommand StartCommand { get; set; }
 
