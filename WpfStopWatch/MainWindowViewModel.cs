@@ -22,7 +22,7 @@ namespace WpfStopWatch
         private ObservableCollection<string> _lapTimes;
         private ICommand _startCommand;
         private ICommand _stopCommand;
-        private ICommand _clearCommand;
+        private ICommand _clearOrCheckCommand;
 
 
         public TimeSpan Elapsed
@@ -79,14 +79,25 @@ namespace WpfStopWatch
         {
             get
             {
-                if (_clearCommand == null)
+                if (_clearOrCheckCommand == null)
                 {
-                    _clearCommand = new RelayCommand(param => Reset(), null);
+                    _clearOrCheckCommand = new RelayCommand(param => ClearCheck(), null);
                 }
-                return _clearCommand;
+                return _clearOrCheckCommand;
             }
         }
-        public ObservableCollection<string> LapTimes { get; set; }
+        public ObservableCollection<string> LapTimes
+        {
+            get
+            {
+                return _lapTimes;
+            }
+            set
+            {
+                _lapTimes = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         public MainWindowViewModel()
         {
@@ -124,26 +135,22 @@ namespace WpfStopWatch
             }
         }
 
-        private void Reset()
+        private void ClearCheck()
         {
-            if (_stopwatch.IsRunning == false)
+            if (_stopwatch.IsRunning)
+            {
+                LapTimes.Add(Elapsed.ToString());
+            }
+            else
             {
                 _stopwatch.Reset();
                 Elapsed = TimeSpan.Zero;
             }
         }
 
-        private void Check()
-        {
-            if (_stopwatch.IsRunning)
-            {
-
-            }
-        }
-
         private void LapTimes_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            NotifyPropertyChanged();
+            NotifyPropertyChanged("LapTimes");
         }
 
     }
