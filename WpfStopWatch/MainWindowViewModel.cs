@@ -46,11 +46,8 @@ namespace WpfStopWatch
             }
             set
             {
-                if (string.IsNullOrEmpty(_clearOrCheck))
-                {
-                    _clearOrCheck = _stopwatch.IsRunning ? "CHECK" : "CLEAR";
-                    NotifyPropertyChanged();
-                }
+                _clearOrCheck = value;
+                NotifyPropertyChanged();
             }
         }
 
@@ -98,7 +95,7 @@ namespace WpfStopWatch
             _dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
             _dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 1);
             _elapsed = new TimeSpan();
-            _clearOrCheck = "CLEAR";
+            ClearOrCheck = "CLEAR";
             _lapTimes = new ObservableCollection<string>();
             _lapTimes.CollectionChanged += new NotifyCollectionChangedEventHandler(LapTimes_CollectionChanged);
         }
@@ -115,6 +112,7 @@ namespace WpfStopWatch
         {
             _stopwatch.Start();
             _dispatcherTimer.Start();
+            ClearOrCheck = "CHECK";
         }
 
         private void Stop()
@@ -122,6 +120,7 @@ namespace WpfStopWatch
             if (_stopwatch.IsRunning)
             {
                 _stopwatch.Stop();
+                ClearOrCheck = "CLEAR";
             }
         }
 
@@ -130,6 +129,7 @@ namespace WpfStopWatch
             if (_stopwatch.IsRunning == false)
             {
                 _stopwatch.Reset();
+                Elapsed = TimeSpan.Zero;
             }
         }
 
