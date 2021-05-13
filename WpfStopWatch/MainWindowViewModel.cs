@@ -81,7 +81,7 @@ namespace WpfStopWatch
             {
                 if (_clearOrCheckCommand == null)
                 {
-                    _clearOrCheckCommand = new RelayCommand(param => ClearCheck(), null);
+                    _clearOrCheckCommand = new RelayCommand(param => ClearDisplayOrAddLapTime(), null);
                 }
                 return _clearOrCheckCommand;
             }
@@ -135,7 +135,7 @@ namespace WpfStopWatch
             }
         }
 
-        private void ClearCheck()
+        private void ClearDisplayOrAddLapTime()
         {
             if (_stopwatch.IsRunning)
             {
