@@ -139,12 +139,16 @@ namespace WpfStopWatch
         {
             if (_stopwatch.IsRunning)
             {
-                LapTimes.Add(Elapsed.ToString());
+                var ts = Elapsed;
+                var str = string.Format("{0:00}:{1:00}:{2:00}.{3:000}",
+                ts.Minutes, ts.Seconds, ts.Milliseconds / 10, ts.Milliseconds);
+                LapTimes.Add(str);
             }
             else
             {
                 _stopwatch.Reset();
                 Elapsed = TimeSpan.Zero;
+                LapTimes.Clear();
             }
         }
 
