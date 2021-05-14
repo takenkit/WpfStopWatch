@@ -24,7 +24,6 @@ namespace WpfStopWatch
 
         public bool CanExecute(object parameter)
         {
-            // 後で条件考える
             return _canExecute == null ? true : _canExecute(parameter);
         }
 
