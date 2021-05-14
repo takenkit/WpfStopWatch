@@ -19,7 +19,6 @@ namespace WpfStopWatch
         private ICommand _stopCommand;
         private ICommand _clearOrCheckCommand;
 
-
         public TimeSpan Elapsed
         {
             get
@@ -136,7 +135,7 @@ namespace WpfStopWatch
             {
                 var ts = Elapsed;
                 var str = string.Format("  LAP{0:00}:              {1:00}:{2:00}:{3:00}.{4:000}",
-                LapTimes.Count + 1, ts.Minutes, ts.Seconds, ts.Milliseconds / 10, ts.Milliseconds);
+                LapTimes.Count + 1, ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);
 
                 LapTimes.Add(str);
                 if (LapTimes.Count > 1)
