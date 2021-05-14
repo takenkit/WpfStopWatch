@@ -45,7 +45,19 @@ namespace WpfStopWatch
             }
         }
 
-        public ICommand StartCommand 
+        public ObservableCollection<string> LapTimes
+        {
+            get
+            {
+                return _lapTimes;
+            }
+            set
+            {
+                _lapTimes = value;
+                NotifyPropertyChanged();
+            }
+        }
+        public ICommand StartCommand
         {
             get
             {
@@ -57,7 +69,7 @@ namespace WpfStopWatch
             }
         }
 
-        public ICommand StopCommand 
+        public ICommand StopCommand
         {
             get
             {
@@ -80,18 +92,6 @@ namespace WpfStopWatch
                 return _clearOrCheckCommand;
             }
         }
-        public ObservableCollection<string> LapTimes
-        {
-            get
-            {
-                return _lapTimes;
-            }
-            set
-            {
-                _lapTimes = value;
-                NotifyPropertyChanged();
-            }
-        }
 
         public MainWindowViewModel()
         {
@@ -105,13 +105,6 @@ namespace WpfStopWatch
             _lapTimes.CollectionChanged += new NotifyCollectionChangedEventHandler(LapTimes_CollectionChanged);
         }
 
-        private void DispatcherTimer_Tick(object sender, EventArgs e)
-        {
-            if (_stopwatch.IsRunning)
-            {
-                Elapsed = _stopwatch.Elapsed;
-            }
-        }
 
         private void Start()
         {
@@ -149,6 +142,14 @@ namespace WpfStopWatch
                 _stopwatch.Reset();
                 Elapsed = TimeSpan.Zero;
                 LapTimes.Clear();
+            }
+        }
+
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            if (_stopwatch.IsRunning)
+            {
+                Elapsed = _stopwatch.Elapsed;
             }
         }
 
