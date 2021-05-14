@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Timers;
-using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Threading;
 
@@ -19,7 +12,7 @@ namespace WpfStopWatch
         private Stopwatch _stopwatch;
         private TimeSpan _elapsed;
         private string _clearOrCheck;
-        private ObservableCollection<string> _lapTimes;
+        private ObservableStack<string> _lapTimes;
         private ICommand _startCommand;
         private ICommand _stopCommand;
         private ICommand _clearOrCheckCommand;
@@ -86,7 +79,7 @@ namespace WpfStopWatch
                 return _clearOrCheckCommand;
             }
         }
-        public ObservableCollection<string> LapTimes
+        public ObservableStack<string> LapTimes
         {
             get
             {
@@ -107,7 +100,7 @@ namespace WpfStopWatch
             _dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 1);
             _elapsed = new TimeSpan();
             ClearOrCheck = "CLEAR";
-            _lapTimes = new ObservableCollection<string>();
+            _lapTimes = new ObservableStack<string>();
             _lapTimes.CollectionChanged += new NotifyCollectionChangedEventHandler(LapTimes_CollectionChanged);
         }
 
@@ -140,9 +133,9 @@ namespace WpfStopWatch
             if (_stopwatch.IsRunning)
             {
                 var ts = Elapsed;
-                var str = string.Format("{0:00}:{1:00}:{2:00}.{3:000}",
-                ts.Minutes, ts.Seconds, ts.Milliseconds / 10, ts.Milliseconds);
-                LapTimes.Add(str);
+                var str = string.Format("LAP{0:00}: {1:00}:{2:00}:{3:00}.{4:000}",
+                LapTimes.Count + 1, ts.Minutes, ts.Seconds, ts.Milliseconds / 10, ts.Milliseconds);
+                LapTimes.Push(str);
             }
             else
             {

@@ -20,7 +20,7 @@
         <Button x:Name="btnStart" Grid.Row="1" Content="START" HorizontalAlignment="Left" Margin="45,39,0,0" VerticalAlignment="Top" Width="80" Height="40" Command="{Binding StartCommand}" />
         <Button x:Name="btnStop" Grid.Row="1" Content="STOP" HorizontalAlignment="Left" Margin="153,39,0,0" VerticalAlignment="Top" Width="80" Height="40" Command="{Binding StopCommand}" />
         <Button x:Name="btnClear" Grid.Row="1" Content="{Binding ClearOrCheck}" HorizontalAlignment="Left" Margin="265,39,0,0" VerticalAlignment="Top" Width="80" Height="40" Command="{Binding ClearOrCheckCommand}" />
-        <ListBox x:Name="lbLapTimes" HorizontalAlignment="Left" Height="144" Margin="87,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="223" BorderBrush="{x:Null}" ItemsSource="{Binding LapTimes}" />
+        <ListBox x:Name="lbLapTimes" HorizontalAlignment="Left" Height="144" Margin="87,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="223" BorderBrush="{x:Null}" ItemsSource="{Binding LapTimes}" FontSize="18" FontWeight="Bold" />
 
     </Grid>
 </Window>

@@ -13,3 +13,4 @@ D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\WpfStopWatch.csproj.CoreComp
 D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\WpfStopWatch.exe
 D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\WpfStopWatch.pdb
 D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\source\repos\WpfStopWatch\WpfStopWatch\obj\Debug\WpfStopWatch.csprojAssemblyReference.cache
